@@ -14,3 +14,4 @@ eval $(dircolors ~/.dircolorsrc)
 . ~/.prompt.bash
 
 . ~/.move.bash
+. ~/.print.bash
