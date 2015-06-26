@@ -1,0 +1,7 @@
+export PATH=$PATH:$HOME/bin
+
+set -o vi
+set noclobber
+set ignoreeof
+
+eval $(dircolors ~/.dircolorsrc)
