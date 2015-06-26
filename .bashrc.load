@@ -5,3 +5,7 @@ set noclobber
 set ignoreeof
 
 eval $(dircolors ~/.dircolorsrc)
+
+. ~/.git-completion.bash
+. ~/.git-flow-completion.bash
+. ~/.git-prompt.sh
