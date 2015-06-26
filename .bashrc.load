@@ -9,3 +9,6 @@ eval $(dircolors ~/.dircolorsrc)
 . ~/.git-completion.bash
 . ~/.git-flow-completion.bash
 . ~/.git-prompt.sh
+
+. ~/.colors.bash
+. ~/.prompt.bash
