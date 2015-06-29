@@ -6,12 +6,12 @@ set ignoreeof
 
 eval $(dircolors ~/.dircolorsrc)
 
-. ~/.git-completion.bash
-. ~/.git-flow-completion.bash
-. ~/.git-prompt.sh
+. ~/.config/bash/git-completion.bash
+. ~/.config/bash/git-flow-completion.bash
+. ~/.config/bash/git-prompt.sh
 
-. ~/.colors.bash
-. ~/.prompt.bash
+. ~/.config/bash/colors.bash
+. ~/.config/bash/prompt.bash
 
-. ~/.move.bash
-. ~/.print.bash
+. ~/.config/bash/move.bash
+. ~/.config/bash/print.bash

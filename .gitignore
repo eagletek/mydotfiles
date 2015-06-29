@@ -8,3 +8,8 @@
 .*.swp
 ehthumbs.db
 Thumbs.db
+
+# FISH generated #
+##################
+.config/fish/fish_history
+.config/fish/fishd.*
