@@ -13,5 +13,18 @@ eval $(dircolors ~/.dircolorsrc)
 . ~/.config/bash/colors.bash
 . ~/.config/bash/prompt.bash
 
+. ~/.config/bash/alias.bash
 . ~/.config/bash/move.bash
+. ~/.config/bash/find.bash
+. ~/.config/bash/diff.bash
+do_unified_diff
+
+. ~/.config/bash/connect.bash
+
+. ~/.config/bash/unprintable.bash
 . ~/.config/bash/print.bash
+. ~/.config/bash/notify.bash
+. ~/.config/bash/notes.bash
+. ~/.config/bash/info.bash
+. ~/.config/bash/security.bash
+
