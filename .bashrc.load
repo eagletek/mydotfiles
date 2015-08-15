@@ -17,10 +17,8 @@ eval $(dircolors ~/.dircolorsrc)
 . ~/.config/bash/move.bash
 . ~/.config/bash/find.bash
 . ~/.config/bash/diff.bash
-do_unified_diff
 
 . ~/.config/bash/cvs.bash
-
 . ~/.config/bash/code.bash
 
 . ~/.config/bash/update.bash
@@ -32,4 +30,8 @@ do_unified_diff
 . ~/.config/bash/notes.bash
 . ~/.config/bash/info.bash
 . ~/.config/bash/security.bash
+
+. ~/.config/bash/vim.bash
+
+do_unified_diff
 
