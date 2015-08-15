@@ -31,4 +31,4 @@ pathAppend()
     pathCleanup
 }
 
-pathPrepend . /home/${USER}/bin
+pathPrepend . ${HOME}/bin
