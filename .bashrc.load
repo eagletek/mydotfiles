@@ -1,10 +1,10 @@
-export PATH=$PATH:$HOME/bin
-
 set -o vi
 set noclobber
 set ignoreeof
 
 eval $(dircolors ~/.dircolorsrc)
+
+. ~/.config/bash/env.bash
 
 . ~/.config/bash/git-completion.bash
 . ~/.config/bash/git-flow-completion.bash
@@ -19,6 +19,11 @@ eval $(dircolors ~/.dircolorsrc)
 . ~/.config/bash/diff.bash
 do_unified_diff
 
+. ~/.config/bash/cvs.bash
+
+. ~/.config/bash/code.bash
+
+. ~/.config/bash/update.bash
 . ~/.config/bash/connect.bash
 
 . ~/.config/bash/unprintable.bash
