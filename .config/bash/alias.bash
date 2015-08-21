@@ -4,8 +4,8 @@
 alias hist="history"
 alias ssh="ssh -X"
 alias ls='ls --color'
-alias l='ls -l'
-alias ll='ls -al'
+alias l='ls -hl'
+alias ll='ls -hal'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
