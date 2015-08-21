@@ -6,6 +6,6 @@ git-branchstatus() {
         rev_list_out=$(git rev-list --left-right ${cur}...${ref})
         ahead=$(echo $rev_list_out | grep -o "<" | wc -l)
         behind=$(echo $rev_list_out | grep -o ">" | wc -l)
-        echo "[${behind}|${ahead}] ${ref}"
+        echo "${cur} [${ahead}|${behind}] ${ref}"
     done
 }
