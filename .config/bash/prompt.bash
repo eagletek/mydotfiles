@@ -54,7 +54,7 @@ function git_branch()
     export GIT_BRANCH
 }
 
-function bash_prompt_command() 
+function bash_prompt_command()
 {
     #Also in .git-prompt.sh
 
@@ -84,6 +84,7 @@ PROMPT_COMMAND=bash_prompt_command
 #PROMPT_COMMAND='__git_ps1 "[\[[01;34\]m\u@\h\[[0m\]" "]\\\$ "'
 
 # Color chart @ http://wiki.archlinux.org/index.php/Color_Bash_Prompt
+# also see https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 #
 # Powerline font characters:
 # U+E0A0		Version control branch
@@ -93,6 +94,29 @@ PROMPT_COMMAND=bash_prompt_command
 # U+E0B1		Rightwards arrowhead
 # U+E0B2		Leftwards black arrowhead
 # U+E0B3		Leftwards arrowhead
+
+
+# --- Powerline prompt nodes --- #
+# mkcolor uses Base-6 RGB colors
+
+# blue/green/grey
+#ps1_fg=($(mkgray 20)     $(mkgray 5)      $(mkcolor 1 3 0))
+#ps1_bg=($(mkcolor 1 1 5) $(mkcolor 1 3 0) $(mkgray 5))
+
+# burgundy/orange/grey (VT)
+ps1_fg=($(mkgray 23)     $(mkcolor 1 0 0) $(mkcolor 5 2 0))
+ps1_bg=($(mkcolor 1 0 0) $(mkcolor 5 2 0) $(mkgray 5))
+
+mknode() {
+    node=$1
+    content=$2
+    next=$((node+1))
+    nextbg="$([[ ! -z "${ps1_bg[${next}]}" ]] && mkbg ${ps1_bg[${next}]} || bgreset)"
+    echo "\[$(mkbg ${ps1_bg[$node]})$(mkfg ${ps1_fg[$node]})\]${content}\[${nextbg}$(mkfg ${ps1_bg[$node]})\]"
+}
+node0="$(mknode 0 '\u@\h')"
+node1="$(mknode 1 '$([[ -n ${GIT_BRANCH} ]] && echo "${GIT_BRANCH}" || echo "")')"
+node2="$(mknode 2 '${NEW_PWD}')"
 
 case "${TERM}" in
     "xterm")
@@ -109,7 +133,8 @@ case "${TERM}" in
         # yellow/orange/burgundy
         #export PS1="${TITLEBAR}\[\e[0;30;48;5;220m\]\u@\h\[\e[0;38;5;220;48;5;202m\]\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;30;48;5;202m\]\${GIT_BRANCH}\")\[\e[0;38;5;202;48;5;52m\]\[\e[0;97;48;5;52m\]\${NEW_PWD}\[\e[0m\e[0;38;5;52m\]\[$Color_Off\] "
         # blue/green/grey
-        export PS1="${TITLEBAR}\[\e[0;37;48;5;4m\]\u@\h\[\e[0;38;5;4;48;5;2m\]\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;38;5;234;48;5;2m\]\${GIT_BRANCH}\")\[\e[0;38;5;2;48;5;0m\]\[\e[0;92;48;5;0m\]\${NEW_PWD}\[\e[0m\e[0;38;5;0m\]\[$Color_Off\] "
+        #export PS1="${TITLEBAR}\[\e[0;37;48;5;4m\]\u@\h\[\e[0;38;5;4;48;5;2m\]\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;38;5;234;48;5;2m\]\${GIT_BRANCH}\")\[\e[0;38;5;2;48;5;0m\]\[\e[0;92;48;5;0m\]\${NEW_PWD}\[\e[0m\e[0;38;5;0m\]\[$Color_Off\] "
+        export PS1="${TITLEBAR}${node0}${node1}${node2}\[$Color_Off\] "
         # blue/green/grey -- no powerline
         export PS1_NOPL="${TITLEBAR}\[\e[0;37;48;5;4m\]\u@\h\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;38;5;234;48;5;2m\] \${GIT_BRANCH} \")\[\e[0;92;48;5;0m\]\${NEW_PWD}\[\e[0m\e[0;38;5;0m\]\[$Color_Off\] "
         ;;
