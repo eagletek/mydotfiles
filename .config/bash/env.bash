@@ -32,3 +32,9 @@ pathAppend()
 }
 
 pathPrepend . ${HOME}/bin
+
+if [[ -d ~/.rbenv ]]; then
+    ln -fs ~/.rbenv/bin/rbenv ~/bin/rbenv
+    pathPrepend ~/.rbenv/plugins/ruby-build/bin
+    eval "$(rbenv init -)"
+fi
