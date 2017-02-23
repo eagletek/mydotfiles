@@ -78,3 +78,83 @@ On_IBlue='[104m'    # Blue
 On_IPurple='[105m'  # Purple
 On_ICyan='[106m'    # Cyan
 On_IWhite='[107m'   # White
+
+
+
+# --- 256 color mode functions --- #
+
+# values 0-5 for each RGB color field
+mkcolor() {
+    red=$1
+    green=$2
+    blue=$3
+
+    echo $((16 + red*36 + green*6 + blue))
+}
+
+# 0-23 grayscale steps black to white
+mkgray() {
+    gray=$1
+    echo $((gray+=232))
+}
+
+mkfg() {
+    echo "[38;5;${1}m"
+}
+mkbg() {
+    echo "[48;5;${1}m"
+}
+
+fgcolor() {
+    color=$(mkcolor $@)
+    echo "[38;5;${color}m"
+}
+bgcolor() {
+    color=$(mkcolor $@)
+    echo "[48;5;${color}m"
+}
+
+# 0-23 grayscale steps black to white
+fggray() {
+    gray=$1
+    ((gray+=232))
+    echo "[38;5;${gray}m"
+}
+
+# 0-23 grayscale steps black to white
+bggray() {
+    gray=$1
+    ((gray+=232))
+    echo "[48;5;${gray}m"
+}
+
+bgreset() {
+    echo "[49m"
+}
+fgreset() {
+    echo "[39m"
+}
+coloroff() {
+    echo "[0m"
+}
+
+showcolors() {
+    for red in $(seq 0 5); do
+    for green in $(seq 0 5); do
+    for blue in $(seq 0 5); do
+        echo -n "$(fggray 23)$(bgcolor $red $green $blue) ${red}${green}${blue} $(coloroff)"
+    done
+    echo -n "    "
+    for blue in $(seq 0 5); do
+        echo -n "$(fggray 0)$(bgcolor $red $green $blue) ${red}${green}${blue} $(coloroff)"
+    done
+    echo " "
+    done
+    done
+
+    echo " "
+    for gray in $(seq 0 23); do
+        echo -n "$(fgcolor 5 0 0)$(bggray $gray) ${gray} $(coloroff)"
+    done
+    echo " "
+}
