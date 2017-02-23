@@ -119,7 +119,7 @@ node1="$(mknode 1 '$([[ -n ${GIT_BRANCH} ]] && echo "${GIT_BRANCH}" || echo "
 node2="$(mknode 2 '${NEW_PWD}')"
 
 case "${TERM}" in
-    "xterm")
+    xterm*)
         TITLEBAR='\[\033]0;\u@\h: ${NEW_PWD}\007\]'
         # two lines with 'nodes'
         #export PS1="${TITLEBAR}\[\e[01;37m\]\342\224\214(\[\e[0;94m\]\u@\h\[\e[01;37m\])\$([[ -n \${GIT_BRANCH} ]] && echo \"\342\224\200(\[\e[0;96m\]\${GIT_BRANCH_SYM}\[\e[01;96m\]\${GIT_BRANCH}\[\e[01;37m\])\")\n\342\224\224\342\224\200(\[\e[01;92m\]\${NEW_PWD}\[\e[01;37m\])\342\224\200>\[\e[0m\] "
@@ -138,7 +138,7 @@ case "${TERM}" in
         # blue/green/grey -- no powerline
         export PS1_NOPL="${TITLEBAR}\[\e[0;37;48;5;4m\]\u@\h\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;38;5;234;48;5;2m\] \${GIT_BRANCH} \")\[\e[0;92;48;5;0m\]\${NEW_PWD}\[\e[0m\e[0;38;5;0m\]\[$Color_Off\] "
         ;;
-    "screen")
+    screen)
         TITLEBAR='\[\033k\u@\h > ${NEW_PWD}\033\\\]'
         ESC='\[\ek\e\\\]'
         export PS1="[\[\e[01;34m\]\u@\h \${NEW_PWD}\[\e[0m\]]\$ "
