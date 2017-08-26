@@ -24,6 +24,7 @@ eval $(dircolors ~/.dircolorsrc)
 
 . ~/.config/bash/update.bash
 . ~/.config/bash/connect.bash
+. ~/.config/bash/mongo.bash
 
 . ~/.config/bash/unprintable.bash
 . ~/.config/bash/print.bash
