@@ -38,3 +38,9 @@ if [[ -d ~/.rbenv ]]; then
     pathPrepend ~/.rbenv/plugins/ruby-build/bin
     eval "$(rbenv init -)"
 fi
+
+if [[ -d /usr/local/go ]]; then
+    pathPrepend /usr/local/go/bin
+    export GOPATH="${HOME}/workspace/go"
+    pathPrepend "${GOPATH}/bin"
+fi
