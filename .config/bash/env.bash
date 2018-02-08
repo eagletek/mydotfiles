@@ -9,6 +9,11 @@ pathCleanup()
     export PATH="$(echo $PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
 }
 
+ldlibpathCleanup()
+{
+    export LD_LIBRARY_PATH="$(echo $LD_LIBRARY_PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
+}
+
 # Add arguments to front of PATH, preserving argument order
 pathPrepend()
 {

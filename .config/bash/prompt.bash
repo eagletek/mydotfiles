@@ -104,8 +104,12 @@ PROMPT_COMMAND=bash_prompt_command
 #ps1_bg=($(mkcolor 1 1 5) $(mkcolor 1 3 0) $(mkgray 5))
 
 # burgundy/orange/grey (VT)
-ps1_fg=($(mkgray 23)     $(mkcolor 1 0 0) $(mkcolor 5 2 0))
-ps1_bg=($(mkcolor 1 0 0) $(mkcolor 5 2 0) $(mkgray 5))
+#ps1_fg=($(mkgray 23)     $(mkcolor 1 0 0) $(mkcolor 5 2 0))
+#ps1_bg=($(mkcolor 1 0 0) $(mkcolor 5 2 0) $(mkgray 5))
+
+# red/white/gray
+ps1_fg=($(mkgray 23)     $(mkcolor 1 0 0) $(mkgray 23))
+ps1_bg=($(mkcolor 1 0 0) $(mkgray 23) $(mkgray 5))
 
 mknode() {
     node=$1
