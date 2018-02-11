@@ -2,3 +2,4 @@ README.md skip
 bin recurse
 .fonts recurse
 .config recurse
+.vim recurse
