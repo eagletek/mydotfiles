@@ -12,15 +12,19 @@ endif
 set nocompatible        " use vim defaults
 """"}}}
 """" Pathogen {{{
-"runtime bundle/vim-pathogen/autoload/pathogen.vim
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 """" }}}
 
 " Enable filetype specific plugins
-filetype plugin on
+filetype plugin indent on
 
 " Syntax highlighting on
 syntax on
+
+" Colors
+colorscheme solarized
+set bg=dark
 
 """" Display {{{
 if exists('+colorcolumn')
@@ -213,8 +217,6 @@ inoremap <C-y> <esc>I#!/bin/env <esc>:filetype detect<cr>o
 " Next/Previus buffer
 map <F2> :bp<CR>
 map <F3> :bn<CR>
-map <F4> :FSHere<CR>
-map <leader>vss :FSLeft<CR>
 
 " Quickfix
 map <F5> :cp<CR>
@@ -241,6 +243,8 @@ map <leader>- <C-W>_
 " unmap  to be able to use  for its original purpose
 " (incrementing number under cursor)
 " unmap <C-A>
+
+noremap ; :
 
 """" }}}
 """" Variable definitions {{{
