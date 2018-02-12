@@ -1,4 +1,6 @@
 README.md skip
+.gitmodules skip
+
 bin recurse
 .fonts recurse
 .config recurse
