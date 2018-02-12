@@ -2,7 +2,8 @@
 set bg=dark
 "colors slate2     " set color scheme
 colors srcery
-set gfn=Inconsolata\ for\ Powerline\ 14 " set font
+set gfn=Inconsolata\ Nerd\ Font\ 14 " set font
+set encoding=utf8
 set guioptions+=b " add bottom scrollbar
 set guioptions-=T " don't display toolbar
 set mouse=a

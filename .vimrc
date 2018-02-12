@@ -252,6 +252,7 @@ let g:DoxygenToolkit_authorName="Josh O'Connell"
 let g:CppToolkit_authorName="Josh O'Connell"
 """" }}}
 """" Plugin Configuration {{{
+" Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#checks = [ 'indent' ]
@@ -285,6 +286,9 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Nerdtree highlight
+let g:NERDTreeLimitedSyntax = 1
 
 """" }}}
 
