@@ -21,3 +21,29 @@ sudo apt install ./google-chrome*.deb
 \rm google-chrome*.deb
 cd -
 
+# gnome terminal
+dconf load /org/gnome/terminal/ - <<TERMINAL_SETTINGS
+[legacy/keybindings]
+prev-tab='<Primary>Left'
+next-tab='<Primary>Right'
+new-tab='<Primary>t'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+foreground-color='rgb(255,255,255)'
+visible-name='Eagletek'
+default-size-columns=120
+default-size-rows=32
+use-system-font=false
+use-transparent-background=true
+use-theme-colors=false
+font='Inconsolata Nerd Font Medium 12'
+use-theme-transparency=false
+background-color='rgb(0,0,0)'
+background-transparency-percent=10
+scrollback-lines=100000
+
+[legacy]
+schema-version=uint32 3
+theme-variant='system'
+TERMINAL_SETTINGS
+
