@@ -3,3 +3,7 @@ function rsa_key_gen() {
     openssl genrsa -out rsa.pem 1024
     openssl rsa -in rsa.pem -pubout -out rsa.pub
 }
+
+function temppass() {
+  mkpasswd -l 16 -s 0
+}

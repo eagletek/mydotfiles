@@ -2,6 +2,8 @@ function git_branch()
 {
     GIT_BRANCH=""
     export GIT_BRANCH
+    GIT_REPO=""
+    export GIT_REPO
 
     local repo_info rev_parse_exit_code
     repo_info="$(git rev-parse --git-dir --is-inside-git-dir \
@@ -52,6 +54,10 @@ function git_branch()
 
     GIT_BRANCH="${b##refs/heads/}"
     export GIT_BRANCH
+
+    local repo_dir="$(git rev-parse --show-toplevel)"
+    GIT_REPO=$(basename "${repo_dir}")
+    export GIT_REPO
 }
 
 function bash_prompt_command()
@@ -118,9 +124,9 @@ mknode() {
     nextbg="$([[ ! -z "${ps1_bg[${next}]}" ]] && mkbg ${ps1_bg[${next}]} || bgreset)"
     echo "\[$(mkbg ${ps1_bg[$node]})$(mkfg ${ps1_fg[$node]})\]${content}\[${nextbg}$(mkfg ${ps1_bg[$node]})\]"
 }
-node0="$(mknode 0 '\u@\h')"
-node1="$(mknode 1 '$([[ -n ${GIT_BRANCH} ]] && echo "${GIT_BRANCH}" || echo "")')"
-node2="$(mknode 2 '${NEW_PWD}')"
+node0="$(mknode 0 '\u@\h ')"
+node1="$(mknode 1 '$([[ -n ${GIT_BRANCH} ]] && echo "  ${GIT_REPO}  ${GIT_BRANCH} " || echo "")')"
+node2="$(mknode 2 ' ${NEW_PWD} ')"
 
 case "${TERM}" in
     xterm*)
