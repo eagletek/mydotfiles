@@ -5,7 +5,7 @@
     lol = log --all --pretty=format:'%C(yellow)%h%Cgreen%d %Creset%s %Cblue<%an> %Cred[%ad] %Creset' --date=relative --graph
     lol2 = log --all --pretty=format:'%C(yellow)%h %Cblue<%an> %Cred[%ad] %Creset%s%Cgreen%d %Creset' --date=relative --graph
     last = log -1 HEAD
-    st = status -s
+    st = status -sb
     root = rev-parse --show-toplevel
     cfg = config --global -l
     cur = rev-parse --abbrev-ref HEAD
