@@ -55,14 +55,15 @@ function git_branch()
     GIT_BRANCH="${b##refs/heads/}"
     export GIT_BRANCH
 
-    local repo_dir="$(git rev-parse --show-toplevel)"
-    GIT_REPO=$(basename "${repo_dir}")
+    GIT_REPO_DIR="$(git rev-parse --show-toplevel)"
+    GIT_REPO=$(basename "${GIT_REPO_DIR}")
+    export GIT_REPO_DIR
     export GIT_REPO
 }
 
 function bash_prompt_command()
 {
-    #Also in .git-prompt.sh
+    git_branch
 
     # How many characters of the $PWD should be kept
     local pwdmaxlen=35
@@ -80,7 +81,9 @@ function bash_prompt_command()
     NEW_PWD="${NEW_PWD}"
     export NEW_PWD
 
-    git_branch
+    GIT_PWD=""
+    [[ -n "${GIT_BRANCH}" ]] && GIT_PWD="${PWD/${GIT_REPO_DIR}/▸}"
+    export GIT_PWD
 }
 
 PROMPT_COMMAND=bash_prompt_command
@@ -117,6 +120,10 @@ PROMPT_COMMAND=bash_prompt_command
 ps1_fg=($(mkgray 23)     $(mkcolor 1 0 0) $(mkgray 23))
 ps1_bg=($(mkcolor 1 0 0) $(mkgray 23) $(mkgray 5))
 
+# red/gray/green
+#ps1_fg=($(mkcolor 5 0 0) $(mkcolor 0 5 0) $(mkgray 0))
+#ps1_bg=($(mkgray 1) $(mkgray 10) $(mkgray 18))
+
 mknode() {
     node=$1
     content=$2
@@ -126,7 +133,7 @@ mknode() {
 }
 node0="$(mknode 0 '\u@\h ')"
 node1="$(mknode 1 '$([[ -n ${GIT_BRANCH} ]] && echo "  ${GIT_REPO}  ${GIT_BRANCH} " || echo "")')"
-node2="$(mknode 2 ' ${NEW_PWD} ')"
+node2="$(mknode 2 '$([[ -n ${GIT_BRANCH} ]] && echo " ${GIT_PWD} " || echo " ${NEW_PWD} ")')"
 
 case "${TERM}" in
     xterm*)
