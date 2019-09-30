@@ -4,6 +4,7 @@ function rsa_key_gen() {
     openssl rsa -in rsa.pem -pubout -out rsa.pub
 }
 
-function temppass() {
-  mkpasswd -l 16 -s 0
+function randpass() {
+  local length="${1:-16}"
+  tr -dc A-Za-z0-9_.\!@#% < /dev/urandom | head -c "${length}";echo;
 }
