@@ -95,8 +95,12 @@ function get_os_info() {
   export OS_DISTRIB_RELEASE="0.0"
   
   if which lsb_release > /dev/null; then
-    export OS_DISTRIB_NAME="$(lsb_release -a 2>/dev/null | grep "Distributor ID:" | cut -f2-)"
-    export OS_DISTRIB_RELEASE="$(lsb_release -a 2>/dev/null | grep "Release:" | cut -f2-)"
+    export OS_DISTRIB_NAME="$(lsb_release -is)"
+    export OS_DISTRIB_RELEASE="$(lsb_release -rs)"
+  fi
+
+  if [[ "${OS_DISTRIB_NAME}" == "RedHatEnterprise" ]]; then
+    export OS_DISTRIB_NAME="RHEL"
   fi
 }
 get_os_info
