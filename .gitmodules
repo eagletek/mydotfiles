@@ -72,7 +72,7 @@
 	url = https://github.com/fatih/vim-go.git
 [submodule ".vim/bundle/vim-srcery"]
 	path = .vim/bundle/vim-srcery
-	url = https://github.com/roosta/vim-srcery.git
+	url = https://github.com/srcery-colors/srcery-vim.git
 [submodule ".vim/bundle/rainbow_parentheses.vim"]
 	path = .vim/bundle/rainbow_parentheses.vim
 	url = https://github.com/kien/rainbow_parentheses.vim.git

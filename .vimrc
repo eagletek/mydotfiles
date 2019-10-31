@@ -23,7 +23,7 @@ filetype plugin indent on
 syntax on
 
 " Colors
-colorscheme solarized
+colorscheme srcery
 set bg=dark
 
 """" Display {{{
@@ -256,7 +256,7 @@ let g:CppToolkit_authorName="Josh O'Connell"
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#checks = [ 'indent' ]
-let g:airline_theme='wombat'
+let g:airline_theme='srcery'
 
 " vim-go
 
