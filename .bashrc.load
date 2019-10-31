@@ -5,6 +5,7 @@ set ignoreeof
 eval $(dircolors ~/.dircolorsrc)
 
 . ~/.config/bash/env.bash
+. ~/.config/bash/venv.bash
 
 . ~/.config/bash/git-completion.bash
 . ~/.config/bash/git-flow-completion.bash

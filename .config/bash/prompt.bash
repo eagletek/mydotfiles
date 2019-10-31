@@ -61,9 +61,22 @@ function git_branch()
     export GIT_REPO
 }
 
+function virtual_environment_info()
+{
+    # disable default virtualenv prompt
+    export VIRTUAL_ENV_DISABLE_PROMPT=0
+
+    VIRTUAL_ENV_NAME=""
+    if [[ -n "${VIRTUAL_ENV}" ]]; then
+        VIRTUAL_ENV_NAME="$(basename "${VIRTUAL_ENV}")"
+    fi
+    export VIRTUAL_ENV_NAME
+}
+
 function bash_prompt_command()
 {
     git_branch
+    virtual_environment_info
 
     # How many characters of the $PWD should be kept
     local pwdmaxlen=35
@@ -120,6 +133,7 @@ get_os_info
 # U+E0B1		Rightwards arrowhead
 # U+E0B2		Leftwards black arrowhead
 # U+E0B3		Leftwards arrowhead
+# U+E235    nf-fae-python
 
 
 # --- Powerline prompt nodes --- #
@@ -151,7 +165,8 @@ mknode() {
 node0="$(mknode 0 '\u@\h  ${OS_DISTRIB_NAME} ${OS_DISTRIB_RELEASE} ')"
 node1="$(mknode 1 '$([[ -n ${GIT_BRANCH} ]] && echo "  ${GIT_REPO}  ${GIT_BRANCH} " || echo "")')"
 node2="$(mknode 2 '$([[ -n ${GIT_BRANCH} ]] && echo " ${GIT_PWD} " || echo " ${NEW_PWD} ")')"
-node3="$(mknode 2 '$(date "+%F %I:%M %p") ')"
+node3="$(mknode 1 '$([[ -n ${VIRTUAL_ENV_NAME} ]] && echo "  ${VIRTUAL_ENV_NAME} " || echo "")')"
+node4="$(mknode 2 '$(date "+%F %I:%M %p") ')"
 
 case "${TERM}" in
     xterm*)
@@ -169,7 +184,7 @@ case "${TERM}" in
         #export PS1="${TITLEBAR}\[\e[0;30;48;5;220m\]\u@\h\[\e[0;38;5;220;48;5;202m\]\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;30;48;5;202m\]\${GIT_BRANCH}\")\[\e[0;38;5;202;48;5;52m\]\[\e[0;97;48;5;52m\]\${NEW_PWD}\[\e[0m\e[0;38;5;52m\]\[$Color_Off\] "
         # blue/green/grey
         #export PS1="${TITLEBAR}\[\e[0;37;48;5;4m\]\u@\h\[\e[0;38;5;4;48;5;2m\]\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;38;5;234;48;5;2m\]\${GIT_BRANCH}\")\[\e[0;38;5;2;48;5;0m\]\[\e[0;92;48;5;0m\]\${NEW_PWD}\[\e[0m\e[0;38;5;0m\]\[$Color_Off\] "
-        export PS1="${TITLEBAR}${node0}${node1}${node2}\n${node3}\[$Color_Off\] "
+        export PS1="${TITLEBAR}${node0}${node1}${node2}\n${node3}${node4}\[$Color_Off\] "
         # blue/green/grey -- no powerline
         export PS1_NOPL="${TITLEBAR}\[\e[0;37;48;5;4m\]\u@\h\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;38;5;234;48;5;2m\] \${GIT_BRANCH} \")\[\e[0;92;48;5;0m\]\${NEW_PWD}\[\e[0m\e[0;38;5;0m\]\[$Color_Off\] "
         ;;
