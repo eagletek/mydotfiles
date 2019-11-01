@@ -5,30 +5,32 @@
 # slackware version of dircolors) are recognized but ignored.
 
 # Below, there should be one TERM entry for each termtype that is colorizable
+TERM ansi
+TERM *color*
+TERM con[0-9]*x[0-9]*
+TERM cons25
+TERM console
+TERM cygwin
+TERM dtterm
+TERM Eterm
+TERM gnome
+TERM hurd
+TERM jfbterm
+TERM konsole
+TERM kterm
 TERM linux
 TERM linux-c
 TERM mach-color
-TERM console
-TERM con132x25
-TERM con132x30
-TERM con132x43
-TERM con132x60
-TERM con80x25
-TERM con80x28
-TERM con80x30
-TERM con80x43
-TERM con80x50
-TERM con80x60
-TERM dtterm
-TERM xterm
-TERM xterm-color
-TERM xterm-debian
-TERM rxvt
-TERM screen
+TERM mlterm
+TERM putty
+TERM rxvt*
+TERM screen*
 TERM screen-w
+TERM st
+TERM terminator
+TERM tmux*
 TERM vt100
-TERM Eterm
-
+TERM xterm*
 # Below are the color init strings for the basic file types. A color init
 # string consists of one or more of the following numeric codes:
 # Attribute codes:
@@ -40,21 +42,30 @@ TERM Eterm
 NORMAL 00	# global default, although everything should be something.
 FILE 00		# normal file
 #DIR 01;32	# directory
-DIR 01;38;5;208	# directory
-#LINK 01;36	# symbolic link.  (If you set this to 'target' instead of a
-            # numerical value, the color is as for the file pointed to.)
-LINK 01;38;5;88	# symbolic link.  (If you set this to 'target' instead of a
-            # numerical value, the color is as for the file pointed to.)
+#DIR 01;38;5;208	# directory
+DIR 01;38;5;166 # directory
+# symbolic link.  (If you set this to 'target' instead of a
+# numerical value, the color is as for the file pointed to.)
+#LINK 01;36
+#LINK 01;38;5;88
+LINK 00;35
+MULTIHARDLINK 00 # regular file with more than one link
 FIFO 40;33	# pipe
 SOCK 01;35	# socket
 DOOR 01;35	# door
 BLK 40;33;01	# block device driver
 CHR 40;33;01	# character device driver
 ORPHAN 47;31;01 # symlink to nonexistent file
+MISSING 00 # ... and the files they point to
+SETUID 37;41 # file that is setuid (u+s)
+SETGID 30;43 # file that is setgid (g+s)
+CAPABILITY 30;41 # file with capability
+STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE 34;42 # dir that is other-writable (o+w) and not sticky
+STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 
 # This is for files with execute permission:
-#EXEC 01;40;31
-EXEC 01;38;5;255;48;5;52
+EXEC 00;40;31
 
 # List any file extensions like '.gz' or '.tar' that you would like ls
 # to colorize below. Put the extension, a space, and the color init string.
@@ -68,72 +79,166 @@ EXEC 01;38;5;255;48;5;52
 #.bat 01;32
 
 # archives or compressed (bright red)
-*.tar 01;31
-*.tgz 01;31
-*.arj 01;31
-*.taz 01;31
-*.lzh 01;31
-*.zip 01;31
-*.z   01;31
-*.Z   01;31
-*.gz  01;31
-*.bz2 01;31
-*.deb 01;31
-*.rpm 01;31
-*.jar 01;31
+.7z 00;91
+.ace 00;91
+.alz 00;91
+.arc 00;91
+.arj 00;91
+.bz 00;91
+.bz2 00;91
+.cab 00;91
+.cpio 00;91
+.deb 00;91
+.dwm 00;91
+.dz 00;91
+.ear 00;91
+.esd 00;91
+.gz  00;91
+.gz 00;91
+.jar 00;91
+.lha 00;91
+.lrz 00;91
+.lz 00;91
+.lz4 00;91
+.lzh 00;91
+.lzma 00;91
+.lzo 00;91
+.rar 00;91
+.rpm 00;91
+.rz 00;91
+.sar 00;91
+.swm 00;91
+.t7z 00;91
+.tar 00;91
+.taz 00;91
+.tbz 00;91
+.tbz2 00;91
+.tgz 00;91
+.tlz 00;91
+.txz 00;91
+.tz 00;91
+.tzo 00;91
+.tzst 00;91
+.war 00;91
+.wim 00;91
+.xz 00;91
+.z   00;91
+.z 00;91
+.Z   00;91
+.Z 00;91
+.zip 00;91
+.zoo 00;91
+.zst 00;91
 
 # image formats (blue)
-*.jpg 01;34
-*.jpeg 01;34
-*.gif 01;34
-*.bmp 01;34
-*.pbm 01;34
-*.pgm 01;34
-*.ppm 01;34
-*.tga 01;34
-*.xbm 01;34
-*.xpm 01;34
-*.tif 01;34
-*.tiff 01;34
-*.png 01;34
-*.mov 01;34
-*.mpg 01;34
-*.mpeg 01;34
-*.avi 01;34
-*.fli 01;34
-*.gl 01;34
-*.dl 01;34
-*.xcf 01;34
-*.xwd 01;34
+.jpg 00;34
+.jpeg 00;34
+.mjpg 00;34
+.mjpeg 00;34
+.gif 00;34
+.bmp 00;34
+.pbm 00;34
+.pgm 00;34
+.ppm 00;34
+.tga 00;34
+.xbm 00;34
+.xpm 00;34
+.tif 00;34
+.tiff 00;34
+.png 00;34
+.svg 00;34
+.svgz 00;34
+.mng 00;34
+.pcx 00;34
+.mov 00;34
+.mpg 00;34
+.mpeg 00;34
+.m2v 00;34
+.mkv 00;34
+.webm 00;34
+.ogm 00;34
+.mp4 00;34
+.m4v 00;34
+.mp4v 00;34
+.vob 00;34
+.qt 00;34
+.nuv 00;34
+.wmv 00;34
+.asf 00;34
+.rm 00;34
+.rmvb 00;34
+.flc 00;34
+.avi 00;34
+.fli 00;34
+.flv 00;34
+.gl 00;34
+.dl 00;34
+.xcf 00;34
+.xwd 00;34
+.yuv 00;34
+.cgm 00;34
+.emf 00;34
+.ogv 00;34
+.ogx 00;34
 
 # audio formats (magenta)
-*.ogg 01;35
-*.mp3 01;35
-*.wav 01;35
+.aac 00;95
+.au 00;95
+.flac 00;95
+.m4a 00;95
+.mid 00;95
+.midi 00;95
+.mka 00;95
+.mp3 00;95
+.mpc 00;95
+.ogg 00;95
+.ra 00;95
+.wav 00;95
+.oga 00;95
+.opus 00;95
+.spx 00;95
+.xspf 00;95
 
 # web (white on black)
-*.htm 01;40;37
-*.html 01;40;37
-*.php 01;40;37
-*.js 01;40;37
-*.css 01;40;37
+.htm 01;40;37
+.html 01;40;37
+.php 01;40;37
+.js 01;40;37
+.css 01;40;37
+.sass 01;40;37
+.scss 01;40;37
+.less 01;40;37
 
-# code files (yellow)
-*.c   01;33
-*.cc  01;33
-*.cpp 01;33
-*.h   00;33
-*.hh  00;33
-*.hpp 00;33
+# code files (bright yellow)
+.c   00;93
+.cc  00;93
+.cpp 00;93
+.h   00;33
+.hh  00;33
+.hpp 00;33
+.java 00;93
+.class 00;33
+.py 00;93
+.pyc 00;33
+.rb 00;93
 
-*akefile 01;30;43
-*.mk 01;30;43
-*build-ant.properties 01;30;43
-*build.mk 01;30;43
-*build.interface 01;30;43
-*build.conf 01;30;43
+# config type files (cyan)
+.conf 00;36
+.ini 00;36
+.interface 00;36
+.mk 00;36
+.properties 00;36
+.xml 00;36
+.yaml 00;36
+.yml 00;36
 
-# java (cyan)
-*.java 01;36
-*.class 00;36
-
+# documentation (green)
+.txt 00;32
+.md 00;32
+.odf 00;32
+.doc 00;32
+.docx 00;32
+.xls 00;32
+.xlsx 00;32
+.ppt 00;32
+.pptx 00;32
