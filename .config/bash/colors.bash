@@ -1,5 +1,7 @@
 # Reset
 Color_Off='[0m'       # Text Reset
+Bg_Reset='[49m'
+Fg_Reset='[39m'
 
 # Modifiers -- e.g. bold-red would be ${Bold}${Red} or shortcut ${BRed}
 # note: modifiers can be combined -- e.g. ${Bold}${Underline}${Red}
