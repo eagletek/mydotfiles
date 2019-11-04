@@ -167,7 +167,7 @@ mknode() {
     echo "\[$(mkbg ${ps1_bg[$node]})$(mkfg ${ps1_fg[$node]})\]${content}\[${nextbg}$(mkfg ${ps1_bg[$node]})\]"
 }
 node0="$(mknode 0 '\u@\h  ${OS_DISTRIB_NAME} ${OS_DISTRIB_RELEASE} ')"
-node1="$(mknode 1 '$([[ -n ${GIT_BRANCH} ]] && echo "  ${GIT_REPO}  ${GIT_BRANCH} " || echo "")')"
+node1="$(mknode 1 '$([[ -n ${GIT_BRANCH} ]] && echo "   ${GIT_REPO}  ${GIT_BRANCH} " || echo "")')"
 node2="$(mknode 2 '$([[ -n ${GIT_BRANCH} ]] && echo " ${GIT_PWD} " || echo " ${NEW_PWD} ")')"
 node3="$(mknode 0 '')"
 node4="$(mknode 1 '$([[ -n ${VIRTUAL_ENV_NAME} ]] && echo "  ${VIRTUAL_ENV_NAME} " || echo "")')"
