@@ -91,3 +91,9 @@
 [submodule ".vim/bundle/vim-mustache-handlebars"]
 	path = .vim/bundle/vim-mustache-handlebars
 	url = https://github.com/mustache/vim-mustache-handlebars.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule ".oh-my-zsh-custom/themes/powerlevel9k"]
+	path = .oh-my-zsh-custom/themes/powerlevel9k
+	url = https://github.com/Powerlevel9k/powerlevel9k.git

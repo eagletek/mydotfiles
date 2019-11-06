@@ -27,4 +27,6 @@
 [http]
     postBuffer = 2147483647
 [core]
-	autocrlf = false
+    autocrlf = false
+[cola]
+    spellcheck = false
