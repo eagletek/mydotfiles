@@ -12,6 +12,8 @@ eval $(dircolors ~/.dircolorsrc)
 . ~/.config/bash/git-prompt.sh
 . ~/.config/bash/git.bash
 
+. ~/.config/bash/tmuxinator-completion.bash
+
 . ~/.config/bash/colors.bash
 . ~/.config/bash/prompt.bash
 
