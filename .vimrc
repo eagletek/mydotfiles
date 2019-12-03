@@ -42,6 +42,12 @@ set showcmd       " Show (partial) command in status line.
 set number        " line numbering
 set scrolloff=3   " always try to show lines above or below cursor while scrolling
 set wildignore+=*.o,*.ko,*.a,*.so,*.dep,abuild-linux.*,*.gcda,*.gcno
+
+" Display tabs and trailing spaces
+set listchars=tab:→\ ,trail:·,nbsp:+,extends:>,precedes:<
+set list
+"_•_·_→_
+
 """" }}}
 """" Searching {{{
 set hlsearch      " highlight search terms in document
