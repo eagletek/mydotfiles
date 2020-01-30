@@ -97,3 +97,6 @@
 [submodule ".oh-my-zsh-custom/themes/powerlevel9k"]
 	path = .oh-my-zsh-custom/themes/powerlevel9k
 	url = https://github.com/Powerlevel9k/powerlevel9k.git
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
