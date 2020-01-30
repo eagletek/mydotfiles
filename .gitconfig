@@ -12,6 +12,7 @@
     amend = commit --amend -c HEAD
     ignored = ls-files --other --ignored --exclude-standard
     pvp = push -v --progress
+    ctags = !.git/hooks/ctags
 [push]
     default = current
 [credential]
@@ -30,3 +31,5 @@
     autocrlf = false
 [cola]
     spellcheck = false
+[init]
+    templatedir = ~/.git_template
