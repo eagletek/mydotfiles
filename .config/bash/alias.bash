@@ -32,3 +32,11 @@ function dateScript() {
 function search() {
     firefox -search "$@"
 }
+
+function tolower() {
+    echo "${1}" | tr '[:upper:]' '[:lower:]'
+}
+
+function toupper() {
+    echo "${1}" | tr '[:lower:]' '[:upper:]'
+}
