@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Usage: java_version file.class
+
+major_version="$(javap -v "${1}" | grep "major version" | awk '{ print $3 }')"
+
+normalized_version=$((major_version - 44))
+
+if [[ $normalized_version -lt 5 ]]; then
+  normalized_version="1.${normalized_version}"
+fi
+
+echo "Java $normalized_version"
