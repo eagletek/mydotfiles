@@ -44,9 +44,9 @@ set scrolloff=3   " always try to show lines above or below cursor while scrolli
 set wildignore+=*.o,*.ko,*.a,*.so,*.dep,abuild-linux.*,*.gcda,*.gcno
 
 " Display tabs and trailing spaces
-set listchars=tab:→\ ,trail:·,nbsp:+,extends:>,precedes:<
+set listchars=tab:▸\ ,trail:·,nbsp:+,extends:>,precedes:<
 set list
-"_•_·_→_
+" • · → ▸ 
 
 """" }}}
 """" Searching {{{
@@ -107,6 +107,11 @@ set history=50
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 set wildmode=list:longest,full
 set showmode
+"""" }}}
+"""" Temporary Files {{{
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
 """" }}}
 """" Auto chdir (disabled) {{{
 " Automatically change current directory to the dir containing the file in

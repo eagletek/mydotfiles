@@ -71,3 +71,7 @@ if [[ -d /usr/local/go ]]; then
     export GOPATH="${HOME}/workspace/go"
     pathPrepend "${GOPATH}/bin"
 fi
+
+if [[ -d /opt/webdriver/bin ]]; then
+    pathPrepend /opt/webdriver/bin
+fi
