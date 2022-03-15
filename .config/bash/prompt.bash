@@ -151,9 +151,21 @@ get_os_info
 #ps1_fg=($(mkgray 23)     $(mkcolor 1 0 0) $(mkgray 23))
 #ps1_bg=($(mkcolor 1 0 0) $(mkgray 23) $(mkgray 5))
 
-# orange/gray
-ps1_fg=(166 208 15)
-ps1_bg=($(mkgray 3) $(mkgray 5) $(mkgray 7))
+if [[ -z "${SSH_CLIENT}" ]]; then
+  # local terminal
+
+  # orange/gray
+  ps1_fg=(166 208 15)
+  ps1_bg=($(mkgray 3) $(mkgray 5) $(mkgray 7))
+
+else
+  # ssh connection
+
+  # green/gray
+  ps1_fg=(70 83 15)
+  ps1_bg=($(mkgray 3) $(mkgray 5) $(mkgray 7))
+
+fi
 
 # red/gray/green
 #ps1_fg=($(mkcolor 5 0 0) $(mkcolor 0 5 0) $(mkgray 0))
