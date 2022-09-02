@@ -301,6 +301,9 @@ au Syntax * RainbowParenthesesLoadBraces
 " Nerdtree highlight
 let g:NERDTreeLimitedSyntax = 1
 
+" IndentLine
+let g:indentLine_concealcursor = ''
+
 """" }}}
 
 " Custom function to display first line of text from doxygen / javadoc style
