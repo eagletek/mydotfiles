@@ -1,10 +1,17 @@
 --[[ Display ]]--
 vim.opt.colorcolumn = "81"
+vim.opt.signcolumn = "yes"
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 3
+vim.opt.scrolloff = 5
 vim.opt.wrap = false -- disable long line wrapping
 vim.opt.js = false -- no join spaces
+
+--[[ Swap/Backup/Undo ]]--
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = vim.fn.stdpath("data") .. "undodir"
+vim.opt.undofile = true
 
 --[[ Visual characters ]]--
 vim.opt.listchars.tab = "󰌒 "
