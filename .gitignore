@@ -13,3 +13,7 @@ Thumbs.db
 ##################
 .config/fish/fish_history
 .config/fish/fishd.*
+
+# Fonts generated #
+###################
+.fonts/**/.uuid
