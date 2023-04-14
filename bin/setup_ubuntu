@@ -2,18 +2,42 @@
 set -ex
 
 sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install git fish vim-gtk exuberant-ctags gcc g++ curl lsb-release 
+sudo apt-get upgrade -y
 
-# nodejs
-curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install -y nodejs build-essential
+# nodejs deb source
+curl -sL https://deb.nodesource.com/setup_19.x | sudo -E bash -
 
-# yarn
+# yarn deb source
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-sudo apt-get install -y yarn
+# packages
+sudo apt-get install -y \
+  build-essential \
+  curl \
+  evince \
+  exuberant-ctags \
+  g++ \
+  gcc \
+  git \
+  grep \
+  gzip \
+  hostname \
+  htop \
+  lsb-release \
+  meld \
+  net-tools \
+  nodejs \
+  ripgrep \
+  tmux \
+  tmuxinator \
+  tree \
+  unzip \
+  zip \
+  vim-gtk \
+  xclip \
+  yarn \
+  zsh
 
 # google chrome
 cd /tmp
@@ -21,6 +45,9 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome*.deb
 \rm google-chrome*.deb
 cd -
+
+# Neovim
+sudo snap install --classic nvim
 
 # gnome terminal
 dconf load /org/gnome/terminal/ <<TERMINAL_SETTINGS
@@ -47,5 +74,8 @@ scrollback-lines=100000
 schema-version=uint32 3
 theme-variant='system'
 TERMINAL_SETTINGS
+
+# Install srcery colors to default profile
+curl -sL https://raw.githubusercontent.com/srcery-colors/srcery-terminal/master/gnome-terminal/srcery_gnome-terminal.sh | bash -
 
 mkdir -p ~/workspace
