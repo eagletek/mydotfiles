@@ -13,6 +13,7 @@ return {
   'tpope/vim-sleuth', -- detect tabstop and shiftwidth automatically
   'tpope/vim-commentary', -- commenting
   'tpope/vim-surround', -- surround things
+  'tpope/vim-obsession', -- session saving
   'tpope/vim-unimpaired', -- surround things
   'tpope/vim-repeat', -- expanded repeat (`.`)
 
@@ -21,6 +22,19 @@ return {
     config = function ()
       ColorMyPencils()
     end
+  },
+
+  -- nvim-tree
+  { "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {
+      }
+    end,
   },
 
   -- Quick file jumping
@@ -49,10 +63,10 @@ return {
   -- indentline
   { 'lukas-reineke/indent-blankline.nvim',
     config = function ()
-      require("indent_blankline").setup {
-        space_char_blankline = " ",
-        show_current_context = true,
-        show_current_context_start = true,
+      require("ibl").setup {
+        -- space_char_blankline = " ",
+        -- show_current_context = true,
+        -- show_current_context_start = true,
       }
     end,
   },
@@ -70,17 +84,7 @@ return {
   },
 
   -- rainbow parens
-  { 'HiPhish/nvim-ts-rainbow2',
-    config = function()
-      require('nvim-treesitter.configs').setup {
-        rainbow = {
-          enable = true,
-          query = 'rainbow-parens',
-          strategy = require('ts-rainbow').strategy.global,
-        }
-      }
-    end,
-  },
+  { 'HiPhish/rainbow-delimiters.nvim' },
 
   -- colorizer
   { 'norcalli/nvim-colorizer.lua',

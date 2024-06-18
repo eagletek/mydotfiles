@@ -37,6 +37,7 @@ eval $(dircolors ~/.dircolorsrc)
 . ~/.config/bash/security.bash
 
 . ~/.config/bash/vim.bash
+. ~/.config/bash/pyenv.bash
 
 do_unified_diff
 

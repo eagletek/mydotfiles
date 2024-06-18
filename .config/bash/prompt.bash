@@ -188,6 +188,11 @@ node5="$(mknode 2 '$(date "+%F %I:%M %p") ')"
 case "${TERM}" in
     xterm*)
         TITLEBAR='\[\033]0;\u@\h: ${NEW_PWD}\007\]'
+        export PS1="${TITLEBAR}${node0}${node1}${node2}\n${node3}${node4}${node5}\[$Color_Off\] "
+        export PS1_NOPL="${TITLEBAR}\[\e[0;37;48;5;4m\]\u@\h\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;38;5;234;48;5;2m\] \${GIT_BRANCH} \")\[\e[0;92;48;5;0m\]\${NEW_PWD}\[\e[0m\e[0;38;5;0m\]\[$Color_Off\] "
+        ;;
+    screen*)
+        TITLEBAR='\[\033]0;\u@\h: ${NEW_PWD}\007\]'
         # two lines with 'nodes'
         #export PS1="${TITLEBAR}\[\e[01;37m\]\342\224\214(\[\e[0;94m\]\u@\h\[\e[01;37m\])\$([[ -n \${GIT_BRANCH} ]] && echo \"\342\224\200(\[\e[0;96m\]\${GIT_BRANCH_SYM}\[\e[01;96m\]\${GIT_BRANCH}\[\e[01;37m\])\")\n\342\224\224\342\224\200(\[\e[01;92m\]\${NEW_PWD}\[\e[01;37m\])\342\224\200>\[\e[0m\] "
 
@@ -205,11 +210,11 @@ case "${TERM}" in
         # blue/green/grey -- no powerline
         export PS1_NOPL="${TITLEBAR}\[\e[0;37;48;5;4m\]\u@\h\$([[ -n \${GIT_BRANCH} ]] && echo \"\[\e[0;38;5;234;48;5;2m\] \${GIT_BRANCH} \")\[\e[0;92;48;5;0m\]\${NEW_PWD}\[\e[0m\e[0;38;5;0m\]\[$Color_Off\] "
         ;;
-    screen)
-        TITLEBAR='\[\033k\u@\h > ${NEW_PWD}\033\\\]'
-        ESC='\[\ek\e\\\]'
-        export PS1="[\[\e[01;34m\]\u@\h \${NEW_PWD}\[\e[0m\]]\$ "
-        ;;
+    #screen)
+        #TITLEBAR='\[\033k\u@\h > ${NEW_PWD}\033\\\]'
+        #ESC='\[\ek\e\\\]'
+        #export PS1="[\[\e[01;34m\]\u@\h \${NEW_PWD}\[\e[0m\]]\$ "
+        #;;
     *)
         export PS1='[\[\e[01;34m\]\u@\h \W\[\e[0m\]]\$ '
     ;;

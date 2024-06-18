@@ -4,6 +4,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
+vim.opt.cursorline = true
 vim.opt.wrap = false -- disable long line wrapping
 vim.opt.js = false -- no join spaces
 

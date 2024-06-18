@@ -13,13 +13,14 @@
     ignored = ls-files --other --ignored --exclude-standard
     pvp = push -v --progress
     ctags = !.git/hooks/ctags
+    lsr-heads = ls-remote --heads --exit-code
 [push]
     default = current
 [credential]
     helper = cache --timeout 86400
 [merge]
     tool = meld
-	renameLimit = 10000
+    renameLimit = 10000
 [color]
     ui = auto
 [mergetool]
@@ -34,3 +35,9 @@
     spellcheck = false
 [init]
     templatedir = ~/.git_template
+    defaultBranch = main
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process

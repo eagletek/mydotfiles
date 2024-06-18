@@ -1,7 +1,7 @@
 # -----------
 # Environment
 # -----------
-export EDITOR=vim
+export EDITOR=nvim
 
 # Remove duplicates, preserving order
 pathCleanup()

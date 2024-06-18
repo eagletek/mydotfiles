@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", ":NvimTreeFindFileToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>pg", ":NvimTreeFindFile<CR>", { silent = true })
 vim.keymap.set("n", ";", ":")
 
 -- use H/J/K/L in visual selection to move selected line(s)
@@ -43,8 +45,8 @@ vim.keymap.set("n", "<leader>p", [["+gp]])
 vim.keymap.set("n", "<leader>P", [["+gP]])
 
 -- Quickfix next/prev
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+--vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+--vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
