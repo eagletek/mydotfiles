@@ -58,7 +58,7 @@ ldlibpathAppend()
     ldlibpathCleanup
 }
 
-pathPrepend . ${HOME}/bin
+pathPrepend . ${HOME}/bin ${HOME}/.local/bin
 
 if [[ -d ~/.rbenv ]]; then
     ln -fs ~/.rbenv/bin/rbenv ~/bin/rbenv
