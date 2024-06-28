@@ -17,6 +17,12 @@ return {
   'tpope/vim-unimpaired', -- surround things
   'tpope/vim-repeat', -- expanded repeat (`.`)
 
+  { 'lewis6991/gitsigns.nvim',
+    config = function()
+      require("gitsigns").setup()
+    end
+  },
+
   -- srcery colors
   { 'srcery-colors/srcery-vim',
     config = function ()
