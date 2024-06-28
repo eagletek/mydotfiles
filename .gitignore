@@ -17,3 +17,8 @@ Thumbs.db
 # Fonts generated #
 ###################
 .fonts/**/.uuid
+
+# tmux TPM managed plugins #
+############################
+.tmux/plugins/*
+!.tmux/plugins/tpm
